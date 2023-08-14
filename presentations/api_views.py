@@ -10,7 +10,7 @@ from .models import Presentation
 
 class PresentationListEncoder(ModelEncoder):
     model = Presentation
-    properties = ["title", "status"]
+    properties = ["title"]
 
     def get_extra_data(self, o):
         return {"status": o.status.name}
@@ -74,6 +74,9 @@ class PresentationDetailEncoder(ModelEncoder):
         "synopsis",
         "created",
     ]
+
+    def get_extra_data(self, o):
+        return {"status": o.status.name}
 
 
 @require_http_methods(["GET", "PUT", "DELETE"])

@@ -184,6 +184,7 @@ def api_list_locations(request):
         )
     else:
         content = json.loads(request.body)
+        print("CONTENT", content)
         try:
             state = State.objects.get(abbreviation=content["state"])
             content["state"] = state
