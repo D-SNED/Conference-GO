@@ -59,7 +59,7 @@ def api_list_attendees(request, conference_vo_id=None):
     else:
         content = json.loads(request.body)
         try:
-            conference_href = f"/api/conferences/{conference_vo_id}"
+            conference_href = f"/api/conferences/{conference_vo_id}/"
             conference = ConferenceVO.objects.get(import_href=conference_href)
             content["conference"] = conference
         except ConferenceVO.DoesNotExist:
